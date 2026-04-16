@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <link rel="stylesheet" href="CssTeste.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Transmissão de Energia</title>
+  <script src="JS_teste.js" defer></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="bolt-wrap" id="boltWrap">⚡</div>
+      <div>
+        <h1 class="title">Transmissão de Energia</h1>
+        <p class="subtitle">Sistema Elétrico de Potência — <span class="sep-badge">SEP</span></p>
+      </div>
+    </div>
+    <div class="global-status">
+      <span class="dot" id="globalDot"></span>
+      <span id="globalLabel">Sistema Offline</span>
+    </div>
+  </header>
+
+  <!-- CONTROLS -->
+  <div class="controls-bar">
+    <button class="btn btn-kill" onclick="desligarTudo()">⏻ Desligar Tudo</button>
+    <div class="sep-line"></div>
+    <button class="btn btn-on"  onclick="ligarEsquerda()">◀ Ligar Esquerda</button>
+    <button class="btn btn-off" onclick="desligarEsquerda()">◀ Desligar Esquerda</button>
+    <div class="sep-line"></div>
+    <button class="btn btn-on"  onclick="ligarDireita()">▶ Ligar Direita</button>
+    <button class="btn btn-off" onclick="desligarDireita()">▶ Desligar Direita</button>
+  </div>
+
+  <!-- MAIN PANELS -->
+  <main class="main-grid">
+
+    <!-- LEFT SYSTEM -->
+    <section class="panel" id="panelLeft">
+      <div class="panel-top">
+        <span class="panel-name">◀ Sistema Esquerdo</span>
+        <span class="badge offline" id="badgeLeft">OFFLINE</span>
+      </div>
+      <div class="cards-grid">
+        <div class="card" id="cLV">
+          <div class="card-icon">V</div>
+          <div class="card-val"><span id="lVolt">—</span><small>kV</small></div>
+          <div class="card-lbl">Tensão</div>
+          <div class="bar-track"><div class="bar-fill" id="bLV"></div></div>
+        </div>
+        <div class="card" id="cLA">
+          <div class="card-icon">A</div>
+          <div class="card-val"><span id="lAmps">—</span><small>A</small></div>
+          <div class="card-lbl">Corrente</div>
+          <div class="bar-track"><div class="bar-fill" id="bLA"></div></div>
+        </div>
+        <div class="card" id="cLW">
+          <div class="card-icon">W</div>
+          <div class="card-val"><span id="lPow">—</span><small>MW</small></div>
+          <div class="card-lbl">Potência Ativa</div>
+          <div class="bar-track"><div class="bar-fill" id="bLW"></div></div>
+        </div>
+        <div class="card" id="cLF">
+          <div class="card-icon">φ</div>
+          <div class="card-val"><span id="lFP">—</span></div>
+          <div class="card-lbl">Fator de Potência</div>
+          <div class="bar-track"><div class="bar-fill" id="bLF"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSMISSION LINE CENTER -->
+    <div class="transmission-center">
+      <div class="line-label">Linha de Transmissão</div>
+      <div class="towers-row">
+        <div class="tower" id="tL">
+          <div class="tower-head">
+            <div class="insulator"></div><div class="insulator"></div><div class="insulator"></div>
+          </div>
+          <div class="tower-pole"></div>
+          <div class="tower-base"></div>
+        </div>
+        <div class="flow-track">
+          <div class="flow-pulse" id="flowPulse"></div>
+        </div>
+        <div class="tower" id="tR">
+          <div class="tower-head">
+            <div class="insulator"></div><div class="insulator"></div><div class="insulator"></div>
+          </div>
+          <div class="tower-pole"></div>
+          <div class="tower-base"></div>
+        </div>
+      </div>
+      <div class="volt-badge" id="lineVolt">— kV</div>
+    </div>
+
+    <!-- RIGHT SYSTEM -->
+    <section class="panel" id="panelRight">
+      <div class="panel-top">
+        <span class="panel-name">Sistema Direito ▶</span>
+        <span class="badge offline" id="badgeRight">OFFLINE</span>
+      </div>
+      <div class="cards-grid">
+        <div class="card" id="cRV">
+          <div class="card-icon">V</div>
+          <div class="card-val"><span id="rVolt">—</span><small>kV</small></div>
+          <div class="card-lbl">Tensão</div>
+          <div class="bar-track"><div class="bar-fill" id="bRV"></div></div>
+        </div>
+        <div class="card" id="cRA">
+          <div class="card-icon">A</div>
+          <div class="card-val"><span id="rAmps">—</span><small>A</small></div>
+          <div class="card-lbl">Corrente</div>
+          <div class="bar-track"><div class="bar-fill" id="bRA"></div></div>
+        </div>
+        <div class="card" id="cRW">
+          <div class="card-icon">W</div>
+          <div class="card-val"><span id="rPow">—</span><small>MW</small></div>
+          <div class="card-lbl">Potência Ativa</div>
+          <div class="bar-track"><div class="bar-fill" id="bRW"></div></div>
+        </div>
+        <div class="card" id="cRF">
+          <div class="card-icon">φ</div>
+          <div class="card-val"><span id="rFP">—</span></div>
+          <div class="card-lbl">Fator de Potência</div>
+          <div class="bar-track"><div class="bar-fill" id="bRF"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SPARKS CONTAINER -->
+  <div id="sparksContainer"></div>
+
+  <!-- ABOUT SECTION -->
+  <section class="about">
+    <h2 class="about-title">⚡ Sobre a Transmissão de Energia e o <span class="sep-badge">SEP</span></h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon">🏭</div>
+        <h3>O que é o SEP?</h3>
+        <p>O <strong>Sistema Elétrico de Potência (SEP)</strong> compreende toda a cadeia de geração, transmissão e distribuição de energia elétrica. No Brasil, operado pelo <strong>ONS</strong>, interliga usinas hidrelétricas, termelétricas, eólicas e solares a consumidores de todo o país.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">⚡</div>
+        <h3>Transmissão de Energia</h3>
+        <p>A transmissão ocorre em <strong>altíssima tensão (138 kV a 750 kV)</strong> para reduzir perdas por efeito Joule ao longo de grandes distâncias. Transformadores elevadores e rebaixadores permitem adequar os níveis de tensão entre geração, transmissão e distribuição.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">📐</div>
+        <h3>Grandezas Elétricas</h3>
+        <p><strong>Tensão (V)</strong> é a diferença de potencial entre dois pontos. <strong>Corrente (A)</strong> é o fluxo de cargas elétricas. <strong>Potência Ativa (W)</strong> é a energia efetivamente consumida. O <strong>Fator de Potência (φ)</strong> indica a eficiência do sistema — idealmente próximo de 1.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🔗</div>
+        <h3>Linhas de Transmissão</h3>
+        <p>As linhas de transmissão possuem <strong>resistência, indutância e capacitância</strong> distribuídas ao longo do condutor. Esses parâmetros influenciam diretamente as perdas e a estabilidade do sistema, exigindo compensação reativa e controle de tensão nos nós do SEP.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🛡️</div>
+        <h3>Proteção do SEP</h3>
+        <p>O SEP utiliza <strong>relés de proteção, disjuntores e para-raios</strong> para isolar falhas rapidamente. A proteção de distância, diferencial e de sobrecorrente garantem a seletividade, isolando apenas o trecho com defeito e mantendo o restante do sistema em operação.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🌱</div>
+        <h3>Futuro e Sustentabilidade</h3>
+        <p>A integração de <strong>fontes renováveis</strong> (solar, eólica) exige redes inteligentes (Smart Grids) e sistemas de armazenamento. Tecnologias como <strong>HVDC (corrente contínua em alta tensão)</strong> reduzem perdas em transmissões de longas distâncias, tornando o SEP mais eficiente e sustentável.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>⚡ Dashboard SEP — Transmissão de Energia</span>
+    <span>Desenvolvido por Marlon Fernando</span>
+  </footer>
+
+  <script>
+
+
+</script>
+</body>
+</html>
