@@ -5,78 +5,47 @@ Maquete Didatica de Sistema Eletrico de Potencia (SEP)
 Este projeto consiste em uma maquete didatica que representa, em escala reduzida, as principais etapas de um Sistema Eletrico de Potencia: geracao, transmissao, subestacoes, distribuicao e consumo final. O objetivo e permitir que estudantes e interessados visualizem e compreendam de forma pratica como a energia eletrica sai da usina e chega ate as residencias, comercios e industrias.
 Objetivo
 
-Demonstrar, de maneira clara e segura, o caminho percorrido pela energia eletrica desde a geracao ate o consumidor final, destacando os principais componentes e conceitos de SEP, como:
-
-    Usinas geradoras (hidreletrica, termica, eolica, etc.)
-
-    Linhas de transmissao em alta tensao
-
-    Subestacoes e transformadores (elevacao e rebaixamento de tensao)
-
-    Redes de distribuicao em media e baixa tensao
-
-    Cargas representativas (casas, industrias, iluminacao publica)
-
-Componentes principais da maquete
+<h2>Componentes principais da maquete</h2>
 
 A maquete e composta por elementos que simulam cada etapa do SEP:
 
-    Geracao: modelo de usina (por exemplo, hidreletrica) representando a fonte de energia.
+<ul>
+ Coffee
+  <li>Tea</li>
+  <li>Milk</li>
 
-    Elevacao de tensao: transformador elevador que simula o aumento da tensao para transmissao (ex.: 13,8 kV -> 138 kV ou mais, em escala conceitual).
+     <li>Geracao: modelo de usina (por exemplo, hidreletrica) representando a fonte de energia.</li>
 
-    Transmissao: torres e linhas de transmissao em alta tensao, mostrando o transporte de energia por longas distancias.
+     <li>Elevacao de tensao: transformador elevador que simula o aumento da tensao para transmissao (ex.: 13,8 kV -> 138 kV ou mais, em escala conceitual).</li>
 
-    Subestacao abaixadora: transformador que reduz a tensao para niveis de distribuicao (ex.: 138 kV -> 13,8 kV).
+     <li>Transmissao: torres e linhas de transmissao em alta tensao, mostrando o transporte de energia por longas distancias.</li>
 
-    Distribuicao: rede de media tensao alimentando transformadores de distribuicao.
+    <li> Subestacao abaixadora: transformador que reduz a tensao para niveis de distribuicao (ex.: 138 kV -> 13,8 kV).</li>
 
-    Transformadores de distribuicao: rebaixamento para baixa tensao (ex.: 220/127 V) para uso final.
+    <li>Distribuicao: rede de media tensao alimentando transformadores de distribuicao.</li>
 
-    Cargas: miniaturas de casas, comercios, industrias e postes de iluminacao, representando os consumidores finais.
+     <li>Transformadores de distribuicao: rebaixamento para baixa tensao (ex.: 220/127 V) para uso final.</li>
+
+    <li> Cargas: miniaturas de casas, comercios, industrias e postes de iluminacao, representando os consumidores finais.</li>
+    </ul>  
 
 Em alguns projetos didaticos, tambem sao incluidas divisorias ou modulos que simulam etapas especificas, como entrada de alta tensao, disjuntores, transformadores e paineis de distribuicao, para reforcar a sequencia logica do sistema.
 Materiais e tecnologias tipicas
 
 Dependendo do nivel de detalhe e recursos disponiveis, a maquete pode usar:
+<ul>
+     <li>Estrutura fisica: MDF, madeira, acrilico ou impressao 3D para pecas como torres, transformadores e edificacoes.</li>
 
-    Estrutura fisica: MDF, madeira, acrilico ou impressao 3D para pecas como torres, transformadores e edificacoes.
+    <li> Circuitos eletricos didaticos: fontes de baixa tensao (ex.: 12-24 V DC), LEDs, resistores e chaves para simular cargas e estados do sistema.</li>
 
-    Circuitos eletricos didaticos: fontes de baixa tensao (ex.: 12-24 V DC), LEDs, resistores e chaves para simular cargas e estados do sistema.
+  <li>   Iluminacao e sinalizacao: LEDs para representar linhas energizadas, subestacoes em operacao e pontos de consumo.</li>
 
-    Iluminacao e sinalizacao: LEDs para representar linhas energizadas, subestacoes em operacao e pontos de consumo.
+    <li> Opcional: microcontroladores (Arduino, ESP32) para simular medicoes, falhas (curto-circuito), ou automacao basica, integrando conceitos de IoT e instrumentacao.</li>
+</ul>
+</ul>
+<h2>Aplicacoes didaticas</h2>
 
-    Opcional: microcontroladores (Arduino, ESP32) para simular medicoes, falhas (curto-circuito), ou automacao basica, integrando conceitos de IoT e instrumentacao.
-
-Aplicacoes didaticas
-
-A maquete pode ser usada para:
-
-    Aulas de Sistemas Eletricos de Potencia, Instalacoes Eletricas e Protecao de Sistemas.
-
-    Demonstracoes em feiras de ciencia, semanas academicas e eventos de eletrotecnica.
-
-    Apoio a atividades praticas de calculo de demanda, escolha de transformadores e dimensionamento de redes.
-
-    Integracao com simulacoes em software (OpenDSS, MATLAB) para comparar resultados teoricos com o comportamento do modelo fisico.
-
-Como usar a maquete
-
-    Apresentar o diagrama unifilar do SEP e explicar cada bloco (geracao, transmissao, distribuicao).
-
-    Mostrar na maquete a sequencia fisica correspondente a cada bloco do diagrama.
-
-    Explicar o papel dos transformadores na elevacao e rebaixamento de tensao e por que isso e feito (reducao de perdas, seguranca, niveis de utilizacao).
-
-    Simular cenarios simples, como:
-
-        Ligacao/desligamento de cargas.
-
-        Falha em um trecho de linha (com indicacao visual de "sem energia").
-
-        Diferentes tipos de consumidores (residencial, comercial, industrial).
-
-Possiveis melhorias e extensoes
+<h2>Possiveis melhorias e extensoes</h2>
 
     Adicionar sensores de tensao/corrente (com circuitos de baixa tensao) e exibir medicoes em um display ou dashboard web (com ESP32, por exemplo).
 
@@ -86,8 +55,5 @@ Possiveis melhorias e extensoes
 
 Autores
 
-    [Seu Nome Aqui] - Desenvolvedor do projeto
+    [Marlon Fernando De Assis Silva] - Desenvolvedor do projeto
 
-Licenca
-
-Este projeto esta sob a licenca [MIT/outra licenca que voce escolher].
